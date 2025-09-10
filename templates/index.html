@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learnly - Adaptive Learning Platform</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="#home" class="logo">
+                    <span class="logo-icon"><i class="fas fa-graduation-cap"></i></span>
+                    Learnly
+                </a>
+                
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#courses">Courses</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#about">About</a></li>
+                    </ul>
+                    
+                    <div class="auth-buttons">
+                        <button class="btn btn-outline" id="signInBtn">Sign In</button>
+                        <button class="btn btn-primary" id="signUpBtn">Sign Up</button>
+                    </div>
+                    
+                    <button class="menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Home Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>Personalized Learning Journeys with AI</h1>
+            <p>Learnly adapts to your learning style and creates custom courses with interactive content, just for you.</p>
+            <button class="btn btn-primary">Start Learning</button>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="container">
+        <h2 class="section-title">Why Choose Learnly?</h2>
+        <div class="features">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <h3>AI-Powered Content</h3>
+                <p>Our system uses Gemini AI to generate educational content tailored to your needs and learning pace.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3>Adaptive Learning</h3>
+                <p>The platform adjusts difficulty and content based on your progress and comprehension levels.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-user-graduate"></i>
+                </div>
+                <h3>Personal Assistant</h3>
+                <p>Get help from our AI tutor whenever you need clarification or additional explanations.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section id="courses" class="container">
+        <div class="section-header">
+            <h2 class="section-title">Explore Our Courses</h2>
+            <p>Discover a wide range of subjects tailored to your learning needs</p>
+        </div>
+        
+        <div class="courses-grid">
+            <div class="course-card">
+                <div class="course-icon">
+                    <i class="fas fa-calculator"></i>
+                </div>
+                <h3>Mathematics</h3>
+                <p>From basic arithmetic to advanced calculus</p>
+                <ul>
+                    <li>Algebra & Geometry</li>
+                    <li>Calculus & Statistics</li>
+                    <li>Applied Mathematics</li>
+                </ul>
+                <button class="btn btn-outline">Explore</button>
+            </div>
+            
+            <div class="course-card">
+                <div class="course-icon">
+                    <i class="fas fa-flask"></i>
+                </div>
+                <h3>Science</h3>
+                <p>Explore the wonders of the natural world</p>
+                <ul>
+                    <li>Physics & Chemistry</li>
+                    <li>Biology & Anatomy</li>
+                    <li>Environmental Science</li>
+                </ul>
+                <button class="btn btn-outline">Explore</button>
+            </div>
+            
+            <div class="course-card">
+                <div class="course-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <h3>Programming</h3>
+                <p>Learn to code from beginner to advanced</p>
+                <ul>
+                    <li>Python & JavaScript</li>
+                    <li>Web Development</li>
+                    <li>Data Structures</li>
+                </ul>
+                <button class="btn btn-outline">Explore</button>
+            </div>
+            
+            <div class="course-card">
+                <div class="course-icon">
+                    <i class="fas fa-globe"></i>
+                </div>
+                <h3>Languages</h3>
+                <p>Master new languages with AI assistance</p>
+                <ul>
+                    <li>Spanish, French, German</li>
+                    <li>English Proficiency</li>
+                    <li>Business Communication</li>
+                </ul>
+                <button class="btn btn-outline">Explore</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section class="container">
+        <div class="demo-section">
+            <h2>Experience Adaptive Learning</h2>
+            <div class="topic-input">
+                <input type="text" id="courseTopic" placeholder="Enter a topic you want to learn (e.g., Calculus Derivatives)">
+                <button id="generateCourseBtn">Generate Course</button>
+            </div>
+            <div class="course-preview" id="coursePreview">
+                <p style="text-align: center; color: #6b7280; padding: 70px 0;">Your generated course content will appear here...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="container">
+        <div class="section-header">
+            <h2 class="section-title">Simple, Transparent Pricing</h2>
+            <p>Choose the plan that works best for your learning journey</p>
+        </div>
+        
+        <div class="pricing-container">
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3>Annual Plan</h3>
+                    <div class="price">₹500<span>/year</span></div>
+                    <p>Perfect for committed learners</p>
+                </div>
+                <ul class="pricing-features">
+                    <li><i class="fas fa-check"></i> Unlimited course access</li>
+                    <li><i class="fas fa-check"></i> AI-powered personal tutor</li>
+                    <li><i class="fas fa-check"></i> Progress tracking</li>
+                    <li><i class="fas fa-check"></i> Certificate of completion</li>
+                    <li><i class="fas fa-check"></i> Priority support</li>
+                </ul>
+                <button class="btn btn-primary">Get Started</button>
+            </div>
+            
+            <div class="pricing-card featured">
+                <div class="popular-badge">Most Popular</div>
+                <div class="pricing-header">
+                    <h3>Monthly Plan</h3>
+                    <div class="price">₹50<span>/month</span></div>
+                    <p>Flexible learning option</p>
+                </div>
+                <ul class="pricing-features">
+                    <li><i class="fas fa-check"></i> Unlimited course access</li>
+                    <li><i class="fas fa-check"></i> AI-powered personal tutor</li>
+                    <li><i class="fas fa-check"></i> Progress tracking</li>
+                    <li><i class="fas fa-check"></i> Certificate of completion</li>
+                    <li><i class="fas fa-check"></i> Standard support</li>
+                </ul>
+                <button class="btn btn-primary">Get Started</button>
+            </div>
+            
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3>Free Trial</h3>
+                    <div class="price">Free</div>
+                    <p>Try before you commit</p>
+                </div>
+                <ul class="pricing-features">
+                    <li><i class="fas fa-check"></i> Limited course access</li>
+                    <li><i class="fas fa-check"></i> Basic AI assistance</li>
+                    <li><i class="fas fa-check"></i> Progress tracking</li>
+                    <li><i class="fas fa-check"></i> No certificate</li>
+                    <li><i class="fas fa-check"></i> Community support</li>
+                </ul>
+                <button class="btn btn-outline">Start Free Trial</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="container">
+        <div class="about-section">
+            <div class="about-content">
+                <h2 class="section-title">About Learnly</h2>
+                <p>Learnly is an innovative adaptive learning platform that leverages artificial intelligence to create personalized educational experiences for every learner.</p>
+                
+                <div class="about-features">
+                    <div class="about-feature">
+                        <i class="fas fa-rocket"></i>
+                        <div>
+                            <h4>Our Mission</h4>
+                            <p>To make quality education accessible and personalized for everyone, everywhere.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="about-feature">
+                        <i class="fas fa-users"></i>
+                        <div>
+                            <h4>Our Team</h4>
+                            <p>Founded by educators and AI experts passionate about transforming learning.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="about-feature">
+                        <i class="fas fa-graduation-cap"></i>
+                        <div>
+                            <h4>Our Impact</h4>
+                            <p>Already helping thousands of students achieve their learning goals.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="about-stats">
+                <div class="stat">
+                    <div class="stat-number">10,000+</div>
+                    <div class="stat-label">Active Learners</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Courses Available</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">98%</div>
+                    <div class="stat-label">Satisfaction Rate</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chatbot Section -->
+<!-- Chatbot Section -->
+<section class="container">
+    <div class="chatbot-section">
+        <h2>Your Personal Learning Assistant</h2>
+        
+        <div class="api-key-container" id="apiKeyContainer">
+            <div class="api-key-status">
+                <i class="fas fa-check-circle" id="apiStatusIcon" style="color: #059669;"></i>
+                <span class="status-connected" id="apiStatusText">Server-side API Connected</span>
+            </div>
+            <p class="api-key-note">Your API key is securely configured on the server for enhanced security.</p>
+        </div>
+        
+        <div class="chat-container">
+            <div class="chat-header">
+                <div class="avatar">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <span>Learnly Assistant</span>
+                <div class="chat-status">
+                    <span class="status-dot"></span>
+                    <span>Online</span>
+                </div>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+                <div class="message bot">
+                    <div class="message-content">
+                        Hi there! I'm your learning assistant powered by Gemini AI. How can I help you with your studies today?
+                    </div>
+                </div>
+            </div>
+            <div class="chat-input-container">
+                <div class="chat-input">
+                    <input type="text" placeholder="Ask a question about your course..." id="chatInput">
+                    <button id="sendMessageBtn"><i class="fas fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Learnly</h3>
+                    <p>Making education adaptive, engaging, and accessible for everyone through AI-powered learning.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#courses">Courses</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Connect With Us</h3>
+                    <ul>
+                        <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+                        <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+                        <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+                        <li><a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>© 2025 Learnly - Adaptive Learning Platform. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals (same as before) -->
+    <!-- Sign In Modal -->
+        <!-- Sign In Modal -->
+    <div class="modal-overlay" id="signInModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h2>Sign In</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <form id="signInForm">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Enter your password" required>
+                </div>
+                <div class="form-options">
+                    <div class="remember-me">
+                        <input type="checkbox" id="remember">
+                        <label for="remember">Remember me</label>
+                    </div>
+                    <a href="#" class="forgot-password">Forgot Password?</a>
+                </div>
+                <button type="submit" class="modal-submit">Sign In</button>
+            </form>
+            <div class="auth-switch">
+                Don't have an account? <a href="#" id="switchToSignUp">Sign Up</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sign Up Modal -->
+    <div class="modal-overlay" id="signUpModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h2>Create Account</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <form id="signUpForm">
+                <div class="form-group">
+                    <label for="signup-name">Full Name</label>
+                    <input type="text" id="signup-name" placeholder="Enter your full name" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-email">Email</label>
+                    <input type="email" id="signup-email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-password">Password</label>
+                    <input type="password" id="signup-password" placeholder="Create a password" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-confirm">Confirm Password</label>
+                    <input type="password" id="signup-confirm" placeholder="Confirm your password" required>
+                </div>
+                <div class="form-options">
+                    <div class="remember-me">
+                        <input type="checkbox" id="terms" required>
+                        <label for="terms">I agree to the Terms & Conditions</label>
+                    </div>
+                </div>
+                <button type="submit" class="modal-submit">Create Account</button>
+            </form>
+            <div class="auth-switch">
+                Already have an account? <a href="#" id="switchToSignIn">Sign In</a>
+            </div>
+        </div>
+    </div>
+
+   
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
