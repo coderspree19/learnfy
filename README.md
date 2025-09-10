@@ -76,13 +76,6 @@ SECRET_KEY=your_secret_key
 python app.py
 ```
 
-6. **Open in browser**
-
-```
-http://127.0.0.1:5000/
-```
-
----
 
 ## 🖥️ Usage
 
